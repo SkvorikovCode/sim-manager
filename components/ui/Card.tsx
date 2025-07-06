@@ -7,7 +7,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ children, className = '' }) => {
   return (
-    <div className={`card ${className}`}>
+    <div className={`card dark:card-dark ${className}`}>
       {children}
     </div>
   );

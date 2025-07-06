@@ -11,7 +11,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((
   ref
 ) => {
   const widthClass = fullWidth ? 'w-full' : '';
-  const errorClass = error ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '';
+  const errorClass = error ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'focus:input-field-focus';
   
   return (
     <div className={`${widthClass} mb-4`}>

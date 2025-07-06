@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const baseClasses = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
+  const baseClasses = variant === 'primary' ? 'btn-primary hover:btn-primary-hover' : 'btn-secondary hover:btn-secondary-hover';
   const widthClasses = fullWidth ? 'w-full' : '';
   const loadingClasses = isLoading ? 'opacity-70 cursor-not-allowed' : '';
   
