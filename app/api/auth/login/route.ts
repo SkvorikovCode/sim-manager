@@ -63,7 +63,8 @@ export async function POST(request: NextRequest) {
     );
     
     // Устанавливаем cookie
-    cookies().set({
+    const cookieStore = await cookies();
+    cookieStore.set({
       name: 'auth-token',
       value: token,
       httpOnly: true,

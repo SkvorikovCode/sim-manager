@@ -23,7 +23,8 @@ const mockUsers = [
 export async function GET(request: NextRequest) {
   try {
     // Получаем токен из cookie
-    const token = cookies().get('auth-token')?.value;
+    const cookieStore = await cookies();
+    const token = cookieStore.get('auth-token')?.value;
     
     if (!token) {
       return NextResponse.json(
