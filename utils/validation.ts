@@ -5,7 +5,12 @@ export const phoneRegex = /^7\d{10}$/;
 export const loginSchema = z.object({
   phone: z.string()
     .regex(phoneRegex, 'Введите корректный номер телефона в формате +7 XXX XXX-XX-XX')
-    .transform(val => val.replace(/\D/g, '')),
+    .transform(val => {
+      // Удаляем все нецифровые символы
+      const digits = val.replace(/\D/g, '');
+      // Убедимся, что номер начинается с 7
+      return digits.startsWith('7') ? digits : '7' + digits;
+    }),
   password: z.string()
     .min(6, 'Пароль должен содержать минимум 6 символов')
     .max(50, 'Пароль не должен превышать 50 символов'),

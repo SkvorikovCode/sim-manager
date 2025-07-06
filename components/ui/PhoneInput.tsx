@@ -24,22 +24,25 @@ const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>((
     // Remove all non-digit characters
     const digits = value.replace(/\D/g, '');
     
+    // Ensure the phone starts with 7
+    const phoneDigits = digits.startsWith('7') ? digits : '7' + digits;
+    
     // Format the phone number
     let formatted = '';
-    if (digits.length > 0) {
-      formatted = '+' + (digits[0] || '7');
+    if (phoneDigits.length > 0) {
+      formatted = '+' + phoneDigits[0];
     }
-    if (digits.length > 1) {
-      formatted += ' ' + digits.substring(1, 4);
+    if (phoneDigits.length > 1) {
+      formatted += ' ' + phoneDigits.substring(1, 4);
     }
-    if (digits.length > 4) {
-      formatted += ' ' + digits.substring(4, 7);
+    if (phoneDigits.length > 4) {
+      formatted += ' ' + phoneDigits.substring(4, 7);
     }
-    if (digits.length > 7) {
-      formatted += '-' + digits.substring(7, 9);
+    if (phoneDigits.length > 7) {
+      formatted += '-' + phoneDigits.substring(7, 9);
     }
-    if (digits.length > 9) {
-      formatted += '-' + digits.substring(9, 11);
+    if (phoneDigits.length > 9) {
+      formatted += '-' + phoneDigits.substring(9, 11);
     }
     
     setFormattedValue(formatted);
@@ -48,7 +51,11 @@ const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>((
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     const digits = inputValue.replace(/\D/g, '');
-    onChange(digits);
+    
+    // Ensure the phone starts with 7
+    const phoneDigits = digits.startsWith('7') ? digits : '7' + digits;
+    
+    onChange(phoneDigits);
   };
   
   const widthClass = fullWidth ? 'w-full' : '';
