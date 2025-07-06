@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SIM-Manager
 
-## Getting Started
+SIM-Manager - это веб-приложение для управления SIM-картами и тарифами. Проект разработан с использованием [Next.js](https://nextjs.org) и предоставляет пользователям возможность авторизации, просмотра баланса, управления тарифами и восстановления пароля.
 
-First, run the development server:
+## Функциональность
+
+- Авторизация пользователей
+- Просмотр баланса и информации о тарифе
+- Сброс пароля через SMS-код
+- Защищенные маршруты с использованием middleware
+- Адаптивный дизайн для мобильных и десктопных устройств
+
+## Технологии
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- React Hook Form с Zod для валидации
+- JWT для аутентификации
+- bcryptjs для хеширования паролей
+
+## Начало работы
+
+1. Клонируйте репозиторий:
+
+```bash
+git clone https://github.com/SkvorikovCode/sim-manager.git
+cd sim-manager
+```
+
+2. Установите зависимости:
+
+```bash
+npm install
+```
+
+3. Запустите сервер разработки:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Демо-данные
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Для тестирования приложения используйте следующие данные:
 
-## Learn More
+- Телефон: +7 900 123-45-67
+- Пароль: password123
+- Код для сброса пароля: 123456
 
-To learn more about Next.js, take a look at the following resources:
+## Структура проекта
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/app` - страницы и API-маршруты приложения
+- `/components` - компоненты пользовательского интерфейса
+- `/store` - хранилище состояния приложения (Zustand)
+- `/types` - типы TypeScript
+- `/utils` - утилиты для работы с API, валидации и форматирования
