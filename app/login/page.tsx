@@ -96,6 +96,12 @@ export default function LoginPage() {
               Войти
             </Button>
           </form>
+          
+          <div className="mt-4 p-3 bg-blue-50 rounded-md text-sm">
+            <p className="font-medium text-blue-800">Демо-данные для входа:</p>
+            <p className="text-blue-700">Телефон: +7 900 123-45-67</p>
+            <p className="text-blue-700">Пароль: password123</p>
+          </div>
         </Card>
       </div>
     </div>
